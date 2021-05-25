@@ -12,10 +12,12 @@ import { UserProvider } from "./context/UserContext";
 ReactDOM.render(
   <LayoutProvider>
     <UserProvider>
-      <ThemeProvider theme={Themes.default}>
-        <CssBaseline />
-        <App />
-      </ThemeProvider>
+      <React.Suspense fallback="loading...">
+        <ThemeProvider theme={Themes.default}>
+          <CssBaseline />
+          <App />
+        </ThemeProvider>
+        </React.Suspense>
     </UserProvider>
   </LayoutProvider>,
   document.getElementById("root"),

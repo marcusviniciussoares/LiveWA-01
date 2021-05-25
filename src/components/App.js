@@ -1,15 +1,28 @@
 import React from "react";
 import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
 
-// components
-import Layout from "./Layout";
 
-// pages
-import Error from "../pages/error";
-import Login from "../pages/login";
+
+
 
 // context
 import { useUserState } from "../context/UserContext";
+
+// components
+const Layout = React.lazy(() => import(
+  /* webpackChunkName: "Dashboard" */
+  "./Layout"
+));
+
+// pages
+const Error = React.lazy(() => import(
+  /* webpackChunkName: "Error" */
+  "../pages/error"
+));
+const Login = React.lazy(() => import(
+  /* webpackChunkName: "Login" */
+  "../pages/login"
+));
 
 export default function App() {
   // global
