@@ -7,6 +7,7 @@ import { useUserState } from "../context/UserContext";
 // components
 const Layout = React.lazy(() => import(
   /* webpackChunkName: "Dashboard" */
+  /* webpackPrefetch: true */
   "./Layout"
 ));
 
@@ -17,6 +18,7 @@ const Error = React.lazy(() => import(
 ));
 const Login = React.lazy(() => import(
   /* webpackChunkName: "Login" */
+  /* webpackPreload: true */
   "../pages/login"
 ));
 

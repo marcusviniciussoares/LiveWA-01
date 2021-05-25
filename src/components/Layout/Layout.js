@@ -29,30 +29,37 @@ import { useLayoutState } from "../../context/LayoutContext";
 // pages
 const Dashboard = React.lazy(() => import(
   /* webpackChunkName: "Dashboard" */
+  /* webpackPreload: true */
   "../../pages/dashboard"
 ));
 const Typography = React.lazy(() => import(
   /* webpackChunkName: "Typography" */
+  /* webpackPrefetch: true */
   "../../pages/typography"
 ));
 const Notifications = React.lazy(() => import(
   /* webpackChunkName: "Notifications" */
+  /* webpackPrefetch: true */
   "../../pages/notifications"
 ));
 const Maps = React.lazy(() => import(
   /* webpackChunkName: "Maps" */
+  /* webpackPrefetch: true */
   "../../pages/maps"
 ));
 const Tables = React.lazy(() => import(
   /* webpackChunkName: "Tables" */
+  /* webpackPrefetch: true */
   "../../pages/tables"
 ));
 const Icons = React.lazy(() => import(
   /* webpackChunkName: "Icons" */
+  /* webpackPrefetch: true */
   "../../pages/icons"
 ));
 const Charts = React.lazy(() => import(
   /* webpackChunkName: "Charts" */
+  /* webpackPrefetch: true */
   "../../pages/charts"
 ));
 
