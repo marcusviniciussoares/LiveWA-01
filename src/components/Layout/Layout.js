@@ -37,6 +37,11 @@ const Typography = React.lazy(() => import(
   /* webpackPrefetch: true */
   "../../pages/typography"
 ));
+const Download = React.lazy(() => import(
+  /* webpackChunkName: "Download" */
+  /* webpackPrefetch: true */
+  "../../pages/download/Download"
+));
 const Notifications = React.lazy(() => import(
   /* webpackChunkName: "Notifications" */
   /* webpackPrefetch: true */
@@ -86,6 +91,7 @@ function Layout(props) {
                 <Route path="/app/typography" component={Typography} />
                 <Route path="/app/tables" component={Tables} />
                 <Route path="/app/notifications" component={Notifications} />
+                <Route path="/app/download" component={Download} />
                 <Route
                   exact
                   path="/app/ui"
