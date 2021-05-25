@@ -1,10 +1,6 @@
 import React from "react";
 import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
 
-
-
-
-
 // context
 import { useUserState } from "../context/UserContext";
 
