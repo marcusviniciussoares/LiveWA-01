@@ -23,17 +23,38 @@ import useStyles from "./styles";
 import Header from "../Header";
 import Sidebar from "../Sidebar";
 
-// pages
-import Dashboard from "../../pages/dashboard";
-import Typography from "../../pages/typography";
-import Notifications from "../../pages/notifications";
-import Maps from "../../pages/maps";
-import Tables from "../../pages/tables";
-import Icons from "../../pages/icons";
-import Charts from "../../pages/charts";
-
 // context
 import { useLayoutState } from "../../context/LayoutContext";
+
+// pages
+const Dashboard = React.lazy(() => import(
+  /* webpackChunkName: "Dashboard" */
+  "../../pages/dashboard"
+));
+const Typography = React.lazy(() => import(
+  /* webpackChunkName: "Typography" */
+  "../../pages/typography"
+));
+const Notifications = React.lazy(() => import(
+  /* webpackChunkName: "Notifications" */
+  "../../pages/notifications"
+));
+const Maps = React.lazy(() => import(
+  /* webpackChunkName: "Maps" */
+  "../../pages/maps"
+));
+const Tables = React.lazy(() => import(
+  /* webpackChunkName: "Tables" */
+  "../../pages/tables"
+));
+const Icons = React.lazy(() => import(
+  /* webpackChunkName: "Icons" */
+  "../../pages/icons"
+));
+const Charts = React.lazy(() => import(
+  /* webpackChunkName: "Charts" */
+  "../../pages/charts"
+));
 
 function Layout(props) {
   var classes = useStyles();
@@ -52,20 +73,22 @@ function Layout(props) {
             })}
           >
             <div className={classes.fakeToolbar} />
-            <Switch>
-              <Route path="/app/dashboard" component={Dashboard} />
-              <Route path="/app/typography" component={Typography} />
-              <Route path="/app/tables" component={Tables} />
-              <Route path="/app/notifications" component={Notifications} />
-              <Route
-                exact
-                path="/app/ui"
-                render={() => <Redirect to="/app/ui/icons" />}
-              />
-              <Route path="/app/ui/maps" component={Maps} />
-              <Route path="/app/ui/icons" component={Icons} />
-              <Route path="/app/ui/charts" component={Charts} />
-            </Switch>
+            <React.Suspense>
+              <Switch>
+                <Route path="/app/dashboard" component={Dashboard} />
+                <Route path="/app/typography" component={Typography} />
+                <Route path="/app/tables" component={Tables} />
+                <Route path="/app/notifications" component={Notifications} />
+                <Route
+                  exact
+                  path="/app/ui"
+                  render={() => <Redirect to="/app/ui/icons" />}
+                />
+                <Route path="/app/ui/maps" component={Maps} />
+                <Route path="/app/ui/icons" component={Icons} />
+                <Route path="/app/ui/charts" component={Charts} />
+              </Switch>
+            </React.Suspense>
             <Box
               mt={5}
               width={"100%"}
