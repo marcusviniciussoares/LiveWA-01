@@ -11,14 +11,14 @@ import { UserProvider } from "./context/UserContext";
 
 ReactDOM.render(
   <LayoutProvider>
-    <UserProvider>
-      <React.Suspense fallback="loading...">
-        <ThemeProvider theme={Themes.default}>
-          <CssBaseline />
-          <App />
-        </ThemeProvider>
-        </React.Suspense>
-    </UserProvider>
+    <React.Suspense fallback="loading...">
+      <UserProvider>
+          <ThemeProvider theme={Themes.default}>
+            <CssBaseline />
+            <App />
+          </ThemeProvider>
+      </UserProvider>
+    </React.Suspense>
   </LayoutProvider>,
   document.getElementById("root"),
 );
